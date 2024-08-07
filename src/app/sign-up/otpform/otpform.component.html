@@ -1,0 +1,66 @@
+<form class="form" [formGroup]="form" (ngSubmit)="submitForm()">
+  <h1>
+    <span style="color: #f1262c">OTP</span>
+    Verification
+  </h1>
+  <p>code has been send to *****&#64;gmail.com</p>
+  <div class="inputs">
+    <div>
+      <input
+        type="text"
+        maxlength="1"
+        #code1
+        formControlName="code1"
+        [ngClass]="!form.get('code1')?.invalid ? 'input-red' : ''"
+        (keyup)="move($event, '', code1, code2)"
+      />
+    </div>
+    <div>
+      <input
+        type="text"
+        maxlength="1"
+        #code2
+        formControlName="code2"
+        [ngClass]="!form.get('code2')?.invalid ? 'input-red' : ''"
+        (keyup)="move($event, code1, code2, code3)"
+      />
+    </div>
+    <div>
+      <input
+        type="text"
+        maxlength="1"
+        #code3
+        formControlName="code3"
+        [ngClass]="!form.get('code3')?.invalid ? 'input-red' : ''"
+        (keyup)="move($event, code2, code3, code4)"
+      />
+    </div>
+    <div>
+      <input
+        type="text"
+        maxlength="1"
+        #code4
+        formControlName="code4"
+        [ngClass]="!form.get('code4')?.invalid ? 'input-red' : ''"
+        (keyup)="move($event, code3, code4, '')"
+      />
+    </div>
+  </div>
+  <div class="button" *ngIf="!submited">
+    <button
+      type="submit"
+      class="btn verfiy-btn"
+      [disabled]="
+        form.get('code1')?.invalid ||
+        form.get('code2')?.invalid ||
+        form.get('code3')?.invalid ||
+        form.get('code4')?.invalid
+      "
+    >
+      Verfiy
+    </button>
+  </div>
+  <div class="loading" *ngIf="submited">
+    <div class="loader"></div>
+  </div>
+</form>
