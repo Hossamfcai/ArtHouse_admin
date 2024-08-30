@@ -1,0 +1,32 @@
+:host {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+}
+
+.dashboard {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+}
+.page-container {
+  height: 100%;
+  overflow: auto;
+  background-color: #231f20;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.page-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.page-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+.page-container::-webkit-scrollbar-track {
+  background-color: #231f20;
+}

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { OtpformComponent } from './otpform.component';
+import { BranchesComponent } from './branches.component';
 
-describe('OtpformComponent', () => {
-  let component: OtpformComponent;
-  let fixture: ComponentFixture<OtpformComponent>;
+describe('BranchesComponent', () => {
+  let component: BranchesComponent;
+  let fixture: ComponentFixture<BranchesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [OtpformComponent]
+      declarations: [BranchesComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(OtpformComponent);
+    fixture = TestBed.createComponent(BranchesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

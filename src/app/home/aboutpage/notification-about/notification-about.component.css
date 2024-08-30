@@ -1,0 +1,7 @@
+.toast-container {
+  z-index: 1100;
+}
+.toast {
+  background-color: #3b82f6;
+  color: white;
+}

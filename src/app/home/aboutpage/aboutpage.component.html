@@ -1,0 +1,119 @@
+<div>
+  <h2>About Form</h2>
+  <form class="px-5" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="mb-3">
+      <label for="formFile" class="form-label">Header Image</label>
+      <input
+        class="form-control"
+        type="file"
+        id="formFile"
+        (change)="onHeaderChange($event)"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="formFile" class="form-label">Left Image</label>
+      <input
+        class="form-control"
+        type="file"
+        id="formFile"
+        [value]="about.history"
+        (change)="onFirtsFileChange($event)"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="formFile" class="form-label">Right Image</label>
+      <input
+        class="form-control"
+        type="file"
+        id="formFile"
+        (change)="onSecondFileChange($event)"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label"
+        >History</label
+      >
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="4"
+        formControlName="history"
+      ></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Growth</label>
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="4"
+        formControlName="growth"
+      ></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">
+        MissionAndVisionstatement</label
+      >
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="4"
+        formControlName="MissionAndVisionstatement"
+      ></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label"
+        >strategy
+      </label>
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="4"
+        formControlName="strategy"
+      ></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label"
+        >WhyArtHouse
+      </label>
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="4"
+        formControlName="WhyArtHouse"
+      ></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label"
+        >OurScope</label
+      >
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="4"
+        formControlName="OurScope"
+      ></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label"
+        >OurCommitment
+      </label>
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="4"
+        formControlName="OurCommitment"
+      ></textarea>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary" (click)="showToast()">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+<app-notification
+  #toast
+  title="Success"
+  message="Data updated successfully!"
+  time="a few seconds ago"
+></app-notification>

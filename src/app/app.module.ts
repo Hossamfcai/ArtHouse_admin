@@ -9,21 +9,41 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
-import { OtpformComponent } from './sign-up/otpform/otpform.component';
+
 import { LoginComponent } from './sign-up/login/login.component';
-import { ChangePasswordComponent } from './sign-up/change-password/change-password.component';
+
+import { SidebarComponent } from './home/sidebar/sidebar.component';
+
+import { AboutpageComponent } from './home/aboutpage/aboutpage.component';
+import { ContactsComponent } from './home/contacts/contacts.component';
+
+import { provideHttpClient } from '@angular/common/http';
+
+import { ProductComponent } from './home/product/product.component';
+import { NotificationComponent } from './home/product/notification/notification.component';
+import { NotificationAboutComponent } from './home/aboutpage/notification-about/notification-about.component';
+import { BranchesComponent } from './home/branches/branches.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignUpComponent,
     HomeComponent,
-    OtpformComponent,
+
     LoginComponent,
-    ChangePasswordComponent,
+
+    SidebarComponent,
+
+    AboutpageComponent,
+    ContactsComponent,
+
+    ProductComponent,
+    NotificationComponent,
+    NotificationAboutComponent,
+    BranchesComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
-  providers: [provideClientHydration()],
+  providers: [provideClientHydration(), provideHttpClient()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

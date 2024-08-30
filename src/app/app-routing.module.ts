@@ -2,23 +2,35 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { HomeComponent } from './home/home.component';
-import { OtpformComponent } from './sign-up/otpform/otpform.component';
+
 import { LocationStrategy } from '@angular/common';
 import { LoginComponent } from './sign-up/login/login.component';
-import { ChangePasswordComponent } from './sign-up/change-password/change-password.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { AboutpageComponent } from './home/aboutpage/aboutpage.component';
+import { ContactsComponent } from './home/contacts/contacts.component';
+
+import { ProductComponent } from './home/product/product.component';
+import { BranchesComponent } from './home/branches/branches.component';
 
 const routes: Routes = [
   {
     path: 'login',
     component: SignUpComponent,
+    children: [{ path: 'loginForm', component: LoginComponent }],
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
     children: [
-      { path: 'loginForm', component: LoginComponent },
-      { path: 'otp', component: OtpformComponent },
-      { path: 'changePassword', component: ChangePasswordComponent },
+      { path: 'products', component: ProductComponent },
+      { path: 'aboutpage', component: AboutpageComponent },
+      { path: 'contacts', component: ContactsComponent },
+      { path: 'branches', component: BranchesComponent },
     ],
   },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', redirectTo: '/products', pathMatch: 'full' },
   { path: '', redirectTo: '/login/loginForm', pathMatch: 'full' },
 ];
 

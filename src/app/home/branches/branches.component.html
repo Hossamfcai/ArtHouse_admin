@@ -1,0 +1,117 @@
+<div class="page">
+  <div class="header">
+    <h4>Branches</h4>
+    <button data-bs-toggle="modal" data-bs-target="#addProduct">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="currentColor"
+        class="bi bi-plus-circle-fill"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"
+        />
+      </svg>
+    </button>
+  </div>
+  <div class="products">
+    <div class="product" *ngFor="let branch of branches">
+      <div class="img-container">
+        <img [src]="Base_Url + branch.branchImg" alt="" />
+      </div>
+      <div class="content">
+        <div class="info">
+          <p>{{ branch.branchName }}</p>
+        </div>
+        <div class="price-button">
+          <div class="button-container">
+            <button class="delete-btn" (click)="deleteBranch(branch._id)">
+              <i class="bi bi-trash3-fill"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+  </div>
+  <!-- Moadal2 -->
+  <div
+    class="modal fade"
+    id="addProduct"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+              Add product
+            </h1>
+            <p>
+              Please ensure all fields are filled out before submitting the
+              form.
+            </p>
+          </div>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="addForm" (ngSubmit)="addBranch()">
+            <div class="mb-3">
+              <input
+                class="form-control"
+                type="file"
+                id="formFile"
+                (change)="onFileChangeProduct($event)"
+              />
+            </div>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Title"
+                aria-label="Username"
+                aria-describedby="basic-addon1"
+                formControlName="branchName"
+              />
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                id="liveToastBtn"
+                data-bs-dismiss="modal"
+                [disabled]="
+                  addForm.value.filename === null ||
+                  addForm.value.title === '' ||
+                  addForm.value.price === '' ||
+                  addForm.value.departmentName === ''
+                "
+              >
+                Submit
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
